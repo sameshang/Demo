@@ -8,21 +8,22 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 
-import com.gtan.medaiplayer.GZMediaPLayer;
+import com.gtan.mediaplayer.GZMediaPlayer;
+
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     private SurfaceView surfaceView;
     private SurfaceHolder videoHolder;
     private Button button;
-    private GZMediaPLayer mediaPLayer;
+    private GZMediaPlayer mediaPlayer;
     private String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         path =getExternalFilesDir(Environment.DIRECTORY_MOVIES)+"/encrypt.mp4";
 
-        mediaPLayer=new GZMediaPLayer(this);
+        mediaPlayer=new GZMediaPlayer(this);
 
         setContentView(R.layout.activity_main);
         surfaceView = (SurfaceView) findViewById(R.id.main_surface_view);
@@ -32,18 +33,16 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mediaPLayer.initChurchExoPlayer("http://test-medialib.singerdream.com/video/ed46cb7aa60d05db8cd6d7c22ff2ee23.mp4",
-                        "2GGToKEf+SzFUXqSdo++3J5JnSvqn/QJtOuV9aDjoJQ=","WzJ4qgF2LXFDxVYLnfNc9A==");
-                mediaPLayer.setVideoSurfaceHolder(videoHolder);
-                mediaPLayer.setPlayWhenReady(true);
+                mediaPlayer.prepareAsync(17922);
+                mediaPlayer.start();
             }
         });
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (mediaPLayer!=null){
-            mediaPLayer.setVideoSurfaceHolder(surfaceHolder);
+        if (mediaPlayer!=null){
+            mediaPlayer.setVideoSurfaceHolder(surfaceHolder);
         }
     }
 
@@ -54,8 +53,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        if (mediaPLayer!=null){
-            mediaPLayer.clearVideoSurfaceHolder(surfaceHolder);
+        if (mediaPlayer!=null){
+            mediaPlayer.clearVideoSurfaceHolder(surfaceHolder);
         }
     }
 }
