@@ -26,6 +26,10 @@
     compile(name: 'gzm_****', ext: 'aar')
     compile 'com.android.support:appcompat-v7:**.**'
     }
+### 2.3 权限说明
+申请网络权限
+
+\<uses-permission android:name="android.permission.INTERNET" \/>(必须)
 
 ## 3. GZMediaplayer 类简单介绍
 
