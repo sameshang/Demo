@@ -27,21 +27,33 @@
 ## 3. GZMediaplayer 类使用介绍
 
     //初始化播放器
-    GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)   
+    GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)  
+    
     //设置要用作媒体视频部分的接收器的页面
-    mediaPlayer.setVideoSurfaceHolder(videoHolder);
+    mediaPlayer.setVideoSurfaceHolder(SurfaceHolder surfaceHolder);
+    mediaPlayer.setVideoTextureView(TextureView textureView)
+    
+    //准备播放资源,异步操作(歌者盟提供的资源id)
+    mediaPlayer.prepareAsync(long videoId);
+    
+    // 1. 设置为 true 当播放器资源加载完成后自动播放,
+    // 2. 当播放器播放过程中,调用此方法可以开始(true)/暂停(false)播放
+    mediaPlayer.setPlayWhenReady(boolean playWhenReady);
+    
+    //设置音量大小 范围 0 至 1
+    mediaPlayer.setVolume(float audioVolume)
+    
+    //获得当前播放器音量大小
+    float volume = mediaPlayer.getVolume()
+    
     //设置监听,播放过程中,视频资源是否正在加载
     mediaPlayer.setOnLoadingListener(new OnLoadingListener() {
         @Override
         public void onLoadingChanged(GZMediaPlayer mp, boolean isLoading) {
-            loadingBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
-            if (isLoading) {
-                mHandler.removeMessages(CHANGE_PROGRESS);
-            } else {
-                mHandler.sendEmptyMessage(CHANGE_PROGRESS);
-            }
+             Log.e(TAG, "onLoadingChanged: ");
         }
     });
+    
     //设置监听,到达媒体源的末尾时调用此方法
     mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
         @Override
@@ -49,6 +61,7 @@
             Log.e(TAG, "onCompletion: ");
         }
     });
+    
     //设置监听,播放过程出现错误
     mediaPlayer.setOnErrorListener(new OnErrorListener() {
         @Override
@@ -56,10 +69,5 @@
             Log.e(TAG, "onError: e\t" + e.getMessage());
         }
     });
-    //准备播放资源,异步操作(歌者盟提供的资源id)
-    mediaPlayer.prepareAsync(27406);
-    // 1. 设置为 true 当播放器资源加载完成后自动播放,
-    // 2. 当播放器播放过程中,调用此方法可以开始(true)/暂停(false)播放
-    mediaPlayer.setPlayWhenReady(true);
 
 
