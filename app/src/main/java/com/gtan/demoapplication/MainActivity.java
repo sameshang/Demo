@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
             public void onClick(View view) {
                 float volume = mediaPlayer.getVolume();
                 if (volume < 1) {
+                    //设置音量大小 范围 0 至 1
                     mediaPlayer.setVolume(volume + 0.1f);
                 } else {
                     Toast.makeText(context, "已是最大啦", Toast.LENGTH_SHORT).show();
