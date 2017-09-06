@@ -10,7 +10,7 @@
 
 注意：歌者盟SDK最低支持API 16（Android 4.1）
 
-将下载包中aars\gzm_*.aar 复制到本地工程libs目录下，在Gradle依赖中添加：
+将下载包中aar\gzm_*.aar 复制到本地工程libs目录下，添加 v7 appcompat 库依赖,在Gradle依赖中添加：
 
     repositories {
         flatDir {
@@ -21,7 +21,7 @@
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile(name: 'gzm_****', ext: 'aar')
-    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:appcompat-v7:**.**'
     }
 
 
