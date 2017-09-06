@@ -4,7 +4,8 @@
 该播放器仅用于播放歌者盟提供的资源文件
 ## 2. 集成前准备
 ### 2.1 下载SDK
-下载歌者盟SDK并解压缩 <https://github.com/sameshang/Demo/raw/master/gezhemeng_android_sdk_0.1.0.tar.gz> ，其中包含了集成需要的库文件、文档。
+<a href="https://github.com/sameshang/Demo/raw/master/gezhemeng_android_sdk_0.1.0.tar.gz">下载歌者盟SDK</a>
+，其中包含了集成需要的库文件、文档。
 ### 2.2 导入SDK
 歌者盟SDK以aar包形式提供，若合作方使用Eclipse作为开发工具请自行转换为jar包。
 
