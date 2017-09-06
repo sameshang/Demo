@@ -4,7 +4,7 @@
 该播放器仅用于播放歌者盟提供的资源文件
 ## 2. 集成前准备
 ### 2.1 下载SDK
-下载歌者盟SDK 下载地址: https://git.singerdream.com/gitbucket/shangmw/DemoForGZMediaPlayer/raw/master/gezhemeng_android_sdk_0.1.0.tar.gz
+下载歌者盟SDK 下载地址: https://git.singerdream.com/gitbucket/shangmw/DemoForGZMediaPlayer/raw/master/gezhemeng_player_android_sdk_1.0.0.tar.gz
 
 其中包含了集成需要的库文件和文档。
 ### 2.2 导入SDK
@@ -12,7 +12,7 @@
 
 注意：歌者盟SDK最低支持API 16（Android 4.1）
 
-##### 2.2.1 将下载包中aar\gzm_*.aar 复制到本地工程libs目录下 
+##### 2.2.1 将下载包中aar\gzm\_player_\*\*\*.aar 复制到本地工程libs目录下 
 ##### 2.2.2 添加 v7 appcompat 库依赖
 ##### 2.2.3 在Gradle依赖中添加：
 
@@ -23,7 +23,7 @@
     }
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'gzm_****', ext: 'aar')
+    compile(name: 'gzm_player_****', ext: 'aar')
     compile 'com.android.support:appcompat-v7:**.**'
     }
 ### 2.3 权限说明
