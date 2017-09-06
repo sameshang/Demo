@@ -24,14 +24,15 @@
     compile 'com.android.support:appcompat-v7:**.**'
     }
 
-## 3. GZMediaplayer 类使用介绍
+## 3. GZMediaplayer 类简单介绍
+
+详细使用情况请参考文档
 
     //初始化播放器
     GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)  
     
     //设置要用作媒体视频部分的接收器的页面
     mediaPlayer.setVideoSurfaceHolder(SurfaceHolder surfaceHolder);
-    mediaPlayer.setVideoTextureView(TextureView textureView)
     
     //准备播放资源,异步操作(歌者盟提供的资源id)
     mediaPlayer.prepareAsync(long videoId);
