@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <SurfaceView
         android:id="@+id/main_surface_view"
-        android:layout_width="400dp"
-        android:layout_height="600dp" />
-    <Button
-        android:id="@+id/main_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"  />
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
-</FrameLayout>
+    <ProgressBar
+        android:id="@+id/main_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp" />
+
+    <SeekBar
+        android:id="@+id/main_seek"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_surface_view"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/main_current_position_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_seek"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:id="@+id/main_end_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/main_seek"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp" />
+
+    <Button
+        android:id="@+id/main_button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/main_seek"
+        android:layout_marginTop="25dp"
+        android:text="播放" />
+
+    <Button
+        android:id="@+id/main_button_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_seek"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="暂停" />
+
+    <Button
+        android:id="@+id/main_button_replay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/main_seek"
+        android:layout_marginTop="25dp"
+        android:text="重播" />
+
+
+    <Button
+        android:id="@+id/main_volume_increase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_button_play"
+        android:text="音量+"/>
+    <Button
+        android:id="@+id/main_volume_decline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_button_pause"
+        android:layout_centerHorizontal="true"
+        android:text="音量-"/>
+
+    <Button
+        android:id="@+id/main_volume_silence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_button_replay"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="静音"/>
+</RelativeLayout>
 
