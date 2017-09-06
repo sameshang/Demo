@@ -38,13 +38,7 @@
     
     // 1. 设置为 true 当播放器资源加载完成后自动播放,
     // 2. 当播放器播放过程中,调用此方法可以开始(true)/暂停(false)播放
-    mediaPlayer.setPlayWhenReady(boolean playWhenReady);
-    
-    //设置音量大小 范围 0 至 1
-    mediaPlayer.setVolume(float audioVolume)
-    
-    //获得当前播放器音量大小
-    float volume = mediaPlayer.getVolume()
+    mediaPlayer.setPlayWhenReady(boolean playWhenReady)
     
     //设置监听,播放过程中,视频资源是否正在加载
     mediaPlayer.setOnLoadingListener(new OnLoadingListener() {
