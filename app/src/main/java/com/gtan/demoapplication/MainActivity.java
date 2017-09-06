@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
             }
         });
         //准备播放资源,异步操作(歌者盟提供的资源id)
-        mediaPlayer.prepareAsync(27406);
+        mediaPlayer.prepareAsync(27482);
         // 1. 设置为 true 当播放器资源加载完成后自动播放,
         // 2. 当播放器播放过程中,调用此方法可以开始(true)/暂停(false)播放
         mediaPlayer.setPlayWhenReady(true);
