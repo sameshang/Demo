@@ -15,7 +15,7 @@
 
 注意：歌者盟SDK最低支持API 16（Android 4.1）
 
-##### 2.2.1 将下载包中aar\gzm\_player_\*\*\*.aar 复制到本地工程libs目录下 
+##### 2.2.1 将文件 gzm\_player_\*\*\*.aar 复制到本地工程libs目录下 
 ##### 2.2.2 添加 v7 appcompat 库依赖
 ##### 2.2.3 在Gradle依赖中添加：
 
