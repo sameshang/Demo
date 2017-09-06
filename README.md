@@ -1,7 +1,7 @@
 # Demo for GZMediaplayer
 
 ## 1. 功能介绍
-该播放器用于播放歌者盟加密后的视频文件
+该播放器仅用于播放歌者盟提供的资源文件
 ## 2. 集成前准备
 ### 2.1 下载SDK
 下载歌者盟SDK并解压缩 <https://github.com/sameshang/Demo/raw/master/gezhemeng_android_sdk_0.1.0.tar.gz> ，其中包含了集成需要的库文件、文档。
@@ -26,7 +26,7 @@
 
 ## 3. GZMediaplayer 类简单介绍
 
-详细使用情况请参考文档
+详细使用方法请参考文档
 
     //初始化播放器
     GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)  
