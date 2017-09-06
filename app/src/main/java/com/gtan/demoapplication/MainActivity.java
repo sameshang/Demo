@@ -1,7 +1,6 @@
 package com.gtan.demoapplication;
 
 import android.content.Context;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -228,6 +227,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         super.onPause();
         //播放器暂停
         mediaPlayer.setPlayWhenReady(false);
+        mHandler.removeMessages(CHANGE_PROGRESS);
     }
 
     @Override
