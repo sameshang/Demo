@@ -20,9 +20,11 @@
     
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'gzm_***', ext: 'aar')
-    compile 'com.android.support:appcompat-v7:26.+'//v7 支持库
+    compile(name: 'gzm_****', ext: 'aar')
+    compile 'com.android.support:appcompat-v7:26.+'
     }
+
+
 
     
 
