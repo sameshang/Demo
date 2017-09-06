@@ -5,13 +5,15 @@
 ## 2. 集成前准备
 ### 2.1 下载SDK
 <a href="https://github.com/sameshang/Demo/raw/master/gezhemeng_android_sdk_0.1.0.tar.gz">下载歌者盟SDK</a>
-，其中包含了集成需要的库文件、文档。
+，其中包含了集成需要的库文件和文档。
 ### 2.2 导入SDK
 歌者盟SDK以aar包形式提供，若合作方使用Eclipse作为开发工具请自行转换为jar包。
 
 注意：歌者盟SDK最低支持API 16（Android 4.1）
 
-将下载包中aar\gzm_*.aar 复制到本地工程libs目录下并添加 v7 appcompat 库依赖,在Gradle依赖中添加：
+##### 2.2.1 将下载包中aar\gzm_*.aar 复制到本地工程libs目录下 
+##### 2.2.2 添加 v7 appcompat 库依赖
+##### 2.2.3 在Gradle依赖中添加：
 
     repositories {
         flatDir {
@@ -27,7 +29,7 @@
 
 ## 3. GZMediaplayer 类简单介绍
 
-详细使用方法请参考文档
+详细使用方法请参考 demo和文档
 
     //初始化播放器
     GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)  
