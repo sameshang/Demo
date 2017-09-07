@@ -25,7 +25,7 @@
     }
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'GZMPlayer__****', ext: 'aar')
+    compile(name: 'GZMPlayer_****', ext: 'aar')
     compile 'com.android.support:appcompat-v7:**.**'
     }
 ### 2.3 权限说明
