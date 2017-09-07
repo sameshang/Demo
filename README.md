@@ -14,7 +14,7 @@
 
 注意：歌者盟SDK最低支持API 16（Android 4.1）
 
-##### 2.2.1 将文件 gzm\_player_\*\*\*.aar 复制到本地工程libs目录下 
+##### 2.2.1 将文件 GZMPlayer_\*\*\*.aar 复制到本地工程libs目录下 
 ##### 2.2.2 添加 v7 appcompat 库依赖
 ##### 2.2.3 在Gradle依赖中添加：
 
@@ -25,7 +25,7 @@
     }
     dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'gzm_player_****', ext: 'aar')
+    compile(name: 'GZMPlayer__****', ext: 'aar')
     compile 'com.android.support:appcompat-v7:**.**'
     }
 ### 2.3 权限说明
@@ -37,33 +37,82 @@
 
 详细使用方法请参考 demo和文档
 
-    //初始化播放器
-    GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)  
-    //设置要用作媒体视频部分的接收器的页面
-    mediaPlayer.setVideoSurfaceHolder(SurfaceHolder surfaceHolder);
-    //准备播放资源,异步操作(歌者盟提供的资源id)
+### 3.1 初始化播放器
+
+       /**
+       * 初始化播放器
+       *
+       * @param context the Context to use
+       */
+      GZMediaPlayer mediaPlayer =new GZMediaPlayer(android.content.Context context)
+      
+### 3.2 播放视频设置view
+
+#### 3.2.1 SurfaceView
+
+     /**
+     * Sets the {@link SurfaceView} that holds the {@link Surface} onto which video will be
+     * rendered. The player will track the lifecycle of the surface automatically.
+     *
+     * @param surfaceView The surfaceView .
+     */
+    mediaPlayer.setVideoSurfaceView(SurfaceView surfaceView);
+    
+#### 3.2.2 SurfaceHolder
+
+    /**
+     * Sets the {@link SurfaceView} that holds the {@link Surface} onto which video will be
+     * rendered. The player will track the lifecycle of the surface automatically.
+     *
+     * @param surfaceView The surfaceView .
+     */
+    mediaPlayer.setVideoSurfaceHolder(SurfaceHolder surfaceHolder);  
+     
+#### 3.2.3 TextureView
+
+    /**
+     * Sets the {@link TextureView} onto which video will be rendered. The player will track the
+     * lifecycle of the surface automatically.
+     *
+     * @param textureView The texture view.
+     */
+    mediaPlayer.setVideoTextureView(TextureView textureView);
+    
+### 3.3 准备播放资源
+
+异步操作,根情况选择
+
+#### 3.3.1 歌者盟提供的id 未下载
+
+    /**
+     *
+     * @param videoId 歌者盟提供的资源id.
+     */
     mediaPlayer.prepareAsync(long videoId);
-    // 1. 设置为 true 当播放器资源加载完成后自动播放,
-    // 2. 当播放器播放过程中,调用此方法可以开始(true)/暂停(false)播放
-    mediaPlayer.setPlayWhenReady(boolean playWhenReady)
-     //设置监听,播放过程中,视频资源是否正在加载
-    mediaPlayer.setOnLoadingListener(new OnLoadingListener() {
-        @Override
-        public void onLoadingChanged(GZMediaPlayer mp, boolean isLoading) {
-             Log.e(TAG, "onLoadingChanged: ");
-        }
-    });
-    //设置监听,到达媒体源的末尾时调用此方法
-    mediaPlayer.setOnCompletionListener(new OnCompletionListener() {
-        @Override
-        public void onCompletion(GZMediaPlayer mp) {
-            Log.e(TAG, "onCompletion: ");
-        }
-    });
-    //设置监听,播放过程出现错误
-    mediaPlayer.setOnErrorListener(new OnErrorListener() {
-        @Override
-        public void onError(GZMediaPlayer mp, Exception e) {
-            Log.e(TAG, "onError: e\t" + e.getMessage());
-        }
-    });
+    
+#### 3.3.2 歌者盟提供的id 根据歌者盟提供的Url已下载到本地
+
+    /**
+     * @param videoId  歌者盟提供的资源id
+     *
+     * @param filePath 本地文件路径
+     */
+    mediaPlayer.prepareAsync(long videoId, String filePath);
+
+#### 3.3.3 非歌者盟提供的资源
+
+    /**
+     * @param filePath 资源路径
+     */
+    mediaPlayer.prepareAsync(String filePath);
+    
+### 3.4 暂停 播放
+
+注意:当准备播放资源后(异步执行),调用 mediaPlayer.setPlayWhenReady(true) 当播放器资源加载完成后自动播放
+
+    /**
+     * @param playWhenReady 播放(true),暂停(false)
+     */
+     mediaPlayer.setPlayWhenReady(boolean playWhenReady);
+     
+### 3.5 音量控制
