@@ -3,8 +3,8 @@
 ## 1. 功能介绍
 该播放器主要用于播放歌者盟提供的资源文件
 ## 2. 集成前准备
-### 2.1 下载SDK
-下载歌者盟SDK 
+### 2.1 下载歌者盟SDK
+包含库文件和文档
 ##### 2.1.1 库文件 
 下载地址: https://git.singerdream.com/gitbucket/shangmw/DemoForGZMediaPlayer/raw/master/app/libs/GZMPlayer_1.0.0.aar
 ##### 2.1.2 文档
