@@ -29,6 +29,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name: 'gzm_player_1.0.0', ext: 'aar')
+    compile(name: 'GZMPlayer_1.0.0', ext: 'aar')
     compile 'com.android.support:appcompat-v7:26.+'
 }
