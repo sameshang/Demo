@@ -12,7 +12,7 @@
 ### 2.2 导入SDK
 歌者盟SDK以aar包形式提供，若合作方使用Eclipse作为开发工具请自行转换为jar包。
 
-注意：歌者盟SDK最低支持API 16（Android 4.1）
+注意：*歌者盟SDK最低支持API 16（Android 4.1）*
 
 ##### 2.2.1 将文件 GZMPlayer_\*\*\*.aar 复制到本地工程libs目录下 
 ##### 2.2.2 添加 v7 appcompat 库依赖
