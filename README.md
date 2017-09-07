@@ -33,7 +33,7 @@
 
 <uses-permission android:name="android.permission.INTERNET" />(必须)
 
-## 3. GZMediaplayer 类简介
+## 3. GZMediaplayer 简介
 
 详细使用方法请参考 demo和文档
 
@@ -80,7 +80,7 @@
     
 ### 3.3 准备播放资源
 
-异步操作,根情况选择
+异步执行,根情况调用
 
 #### 3.3.1 歌者盟提供的id 未下载
 
@@ -109,7 +109,7 @@
     
 ### 3.4 暂停/播放
 
-注意:当准备播放资源后(异步执行),调用 mediaPlayer.setPlayWhenReady(true) 当播放器资源加载完成后自动播放
+当准备播放资源后(异步执行),调用 mediaPlayer.setPlayWhenReady(true) 当播放器资源加载完成后自动播放
 
     /**
      * @param playWhenReady 播放(true),暂停(false)
@@ -222,3 +222,26 @@
      * player must not be used after calling this method.
      */
     public void release()
+    
+### 3.9 监听
+
+#### 3.9.1 播放完成
+
+    /**
+     * Register a callback to be invoked when the end of a media source has been reached during playback.
+     */
+    public void setOnCompletionListener(OnCompletionListener onCompletionListener) 
+    
+#### 3.9.2 播放器错误
+
+    /**
+     * Register a callback to be invoked when an error has happened during an asynchronous operation.
+     */
+    public void setOnErrorListener(OnErrorListener onErrorListener)
+    
+#### 3.9.3 播放过程中资源加载情况
+
+    /**
+     * Register a callback to be invoked when the media source is ready for playback.
+     */
+    public void setOnLoadingListener(OnLoadingListener onLoadingListener)
