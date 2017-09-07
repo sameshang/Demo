@@ -227,7 +227,6 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         super.onPause();
         //播放器暂停
         mediaPlayer.setPlayWhenReady(false);
-        mHandler.removeMessages(CHANGE_PROGRESS);
     }
 
     @Override
