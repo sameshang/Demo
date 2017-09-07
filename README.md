@@ -5,9 +5,9 @@
 ## 2. 集成前准备
 ### 2.1 下载SDK
 下载歌者盟SDK 
-##### 2.1.1 下载库文件 
+##### 2.1.1 库文件 
 下载地址: https://git.singerdream.com/gitbucket/shangmw/DemoForGZMediaPlayer/raw/master/app/libs/GZMPlayer_1.0.0.aar
-##### 2.1.2 下载文档
+##### 2.1.2 文档
 下载地址: https://git.singerdream.com/gitbucket/shangmw/DemoForGZMediaPlayer/raw/master/GZMPlayer_1.0.0_android_api.tar.gz
 ### 2.2 导入SDK
 歌者盟SDK以aar包形式提供，若合作方使用Eclipse作为开发工具请自行转换为jar包。
