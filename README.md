@@ -166,7 +166,7 @@
      */
     public long getBufferedPosition() throws IllegalStateException
 
-#### 3.6.4 播放器跳转
+#### 3.6.4 播放器定点播放(单位毫秒)
 
     /**
      * Seeks to a position specified in milliseconds in the current window.
