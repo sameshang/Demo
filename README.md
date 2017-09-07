@@ -33,7 +33,7 @@
 
 <uses-permission android:name="android.permission.INTERNET" />(必须)
 
-## 3. GZMediaplayer 类简单介绍
+## 3. GZMediaplayer 类简介
 
 详细使用方法请参考 demo和文档
 
@@ -56,7 +56,7 @@
      *
      * @param surfaceView The surfaceView .
      */
-    mediaPlayer.setVideoSurfaceView(SurfaceView surfaceView);
+    public void setVideoSurfaceView(SurfaceView surfaceView);
     
 #### 3.2.2 SurfaceHolder
 
@@ -66,7 +66,7 @@
      *
      * @param surfaceView The surfaceView .
      */
-    mediaPlayer.setVideoSurfaceHolder(SurfaceHolder surfaceHolder);  
+    public void setVideoSurfaceHolder(SurfaceHolder surfaceHolder);  
      
 #### 3.2.3 TextureView
 
@@ -76,7 +76,7 @@
      *
      * @param textureView The texture view.
      */
-    mediaPlayer.setVideoTextureView(TextureView textureView);
+    public void setVideoTextureView(TextureView textureView);
     
 ### 3.3 准备播放资源
 
@@ -88,7 +88,7 @@
      *
      * @param videoId 歌者盟提供的资源id.
      */
-    mediaPlayer.prepareAsync(long videoId);
+    public void prepareAsync(long videoId);
     
 #### 3.3.2 歌者盟提供的id 根据歌者盟提供的Url已下载到本地
 
@@ -97,22 +97,128 @@
      *
      * @param filePath 本地文件路径
      */
-    mediaPlayer.prepareAsync(long videoId, String filePath);
+    public void prepareAsync(long videoId, String filePath);
 
 #### 3.3.3 非歌者盟提供的资源
 
     /**
      * @param filePath 资源路径
      */
-    mediaPlayer.prepareAsync(String filePath);
+     
+    public void prepareAsync(String filePath);
     
-### 3.4 暂停 播放
+### 3.4 暂停/播放
 
 注意:当准备播放资源后(异步执行),调用 mediaPlayer.setPlayWhenReady(true) 当播放器资源加载完成后自动播放
 
     /**
      * @param playWhenReady 播放(true),暂停(false)
      */
-     mediaPlayer.setPlayWhenReady(boolean playWhenReady);
+    public void setPlayWhenReady(boolean playWhenReady);
      
 ### 3.5 音量控制
+
+#### 3.5.1 设置播放器音量
+
+    /**
+     * Sets the audio volume, with 0 being silence and 1 being unity gain.
+     *
+     * @param audioVolume The audio volume.
+     */
+    public void setVolume(float audioVolume);
+    
+#### 3.5.2 获得播放器音量
+
+    /**
+     * Returns the audio volume, with 0 being silence and 1 being unity gain.
+     *
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+    public float getVolume() throws IllegalStateException
+
+### 3.6 定点播放
+
+#### 3.6.1 获取播放器当前位置(单位毫秒)
+
+    /**
+     * Returns the playback position in the current window, in milliseconds.
+     *
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+    public long getPosition() throws IllegalStateException
+    
+#### 3.6.2 获取播放器总时长(单位毫秒)
+
+    /**
+     * Returns the playback position in the current window, in milliseconds.
+     *
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+    public long getPosition() throws IllegalStateException 
+    
+#### 3.6.3 获取播放器缓冲时长(单位毫秒)
+
+    /**
+     * Returns an estimate of the position in the current window up to which data is buffered, in
+     * milliseconds.
+     *
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+    public long getBufferedPosition() throws IllegalStateException
+
+#### 3.6.4 播放器跳转
+
+    /**
+     * Seeks to a position specified in milliseconds in the current window.
+     *
+     * @param positionMs The seek position in the current window, or {@link C#TIME_UNSET} to seek to
+     *                   the window's default position.
+     */
+    public void seekTo(int positionMs);
+
+### 3.7 播放器状态
+
+#### 3.7.1 判断是否正在播放
+
+    /**
+     * @return Checks whether the GZMediaPlayer is playing.
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+    public boolean isPlaying() throws IllegalStateException 
+    
+#### 3.7.2 获得播放器状态
+
+    **
+     * The player does not have any media to play.
+     */
+    public static final int STATE_IDLE = 1;
+    /**
+     * The player is not able to immediately play from its current position. This state typically
+     * occurs when more data needs to be loaded.
+     */
+    public static final int STATE_BUFFERING = 2;
+    /**
+     * The player is able to immediately play from its current position. The player will be playing if
+     * {@link #getPlayWhenReady()} is true, and paused otherwise.
+     */
+    public static final int STATE_READY = 3;
+    /**
+     * The player has finished playing the media.
+     */
+    public static final int STATE_ENDED = 4;
+    
+
+     /**
+     * Returns the current state of the player.
+     *
+     * @throws if the internal player engine has not been initialized or has been released.
+     */
+     public int getPlaybackState() throws IllegalStateException 
+
+### 3.8 释放播放器
+
+    /**
+     * Releases the player. This method must be called when the player is no longer required. The
+     * player must not be used after calling this method.
+     */
+    public void release()
