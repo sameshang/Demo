@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DemoForGZMediaPlayer.iml" filepath="$PROJECT_DIR$/DemoForGZMediaPlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DemoGZMPlayer.iml" filepath="$PROJECT_DIR$/DemoGZMPlayer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
